@@ -18,11 +18,8 @@ function mostrar()
     porcentajeDesc = parseInt(porcentajeDesc);
 
     
-    
     precioFinalconDesc = precio -  (precio * porcentajeDesc) / 100;
 
-   
-    
     document.getElementById('elPrecioFinal').value = precioFinalconDesc;
    
 

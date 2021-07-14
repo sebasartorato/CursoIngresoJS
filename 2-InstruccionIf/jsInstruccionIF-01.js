@@ -11,7 +11,5 @@ function mostrar()
 	{
 		alert("niña bonita");
 	}
-	
-	alert("ok");
 
 }//FIN DE LA FUNCIÓN

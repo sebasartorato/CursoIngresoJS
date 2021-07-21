@@ -21,7 +21,6 @@ function mostrar()
 	switch(estacionIngresada)
 	{
 		case 'Invierno':
-		{
 			switch(destino)
 			{
 				case 'Bariloche':
@@ -42,10 +41,10 @@ function mostrar()
 				}
 
 			}
-		break;	
-		}
+			break;	
+		
 		case 'Verano':
-		{
+		
 			switch(destino)
 			{
 				case 'Bariloche':
@@ -65,11 +64,10 @@ function mostrar()
 					break;
 				}
 			}
-		break;
-		}
+			break;
+		
 		case 'Otoño':
 		case 'Primavera':
-		{
 			switch (destino)
 			{
 				case 'Bariloche':
@@ -86,8 +84,7 @@ function mostrar()
 				}
 				
 			}
-		break;
-		}
+			break;
 	}
 
 	precioFinal = precioBase - (precioBase * descuento ) / (100); 

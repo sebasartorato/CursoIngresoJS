@@ -7,13 +7,43 @@ function mostrar()
 	var respuesta;
 	var sumaPositivos;
 	var multiplicacionNegativos;
+	var numeroIngresado;
+	var flagFirst;
 	contador=0;
+	acumulador=0;
 	sumaPositivos=0;
-	multiplicacionNegativos=1;
+	multiplicacionNegativos=0;
 	respuesta='si';
+	flagFirst=0;
 
+	while (respuesta == 'si')
+	{
+		contador++;
+		numeroIngresado = prompt('Ingrese un numero:');
+		numeroIngresado = parseInt(numeroIngresado);
+		respuesta = prompt('Desea agregar otro numero?');
 
-	txtIdSuma.value=sumaPositivos;
+		if (flagFirst==0)
+		{
+			if (numeroIngresado<0)
+			{
+				flagFirst=1;
+				multiplicacionNegativos=1;
+			}
+		}
+		
+		if (numeroIngresado>0)
+		{
+			acumulador = acumulador + numeroIngresado;
+		}
+		else
+		{
+			multiplicacionNegativos = multiplicacionNegativos * numeroIngresado;
+		}
+
+	}
+
+	txtIdSuma.value=acumulador;
 	txtIdProducto.value=multiplicacionNegativos;
 
 }//FIN DE LA FUNCIÓN

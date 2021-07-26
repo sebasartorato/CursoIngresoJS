@@ -35,6 +35,7 @@ function mostrar()
 		if (numeroIngresado>0)
 		{
 			acumulador = acumulador + numeroIngresado;
+			sumaPositivos = acumulador;
 		}
 		else
 		{
@@ -43,7 +44,7 @@ function mostrar()
 
 	}
 
-	txtIdSuma.value=acumulador;
+	txtIdSuma.value=sumaPositivos;
 	txtIdProducto.value=multiplicacionNegativos;
 
 }//FIN DE LA FUNCIÓN

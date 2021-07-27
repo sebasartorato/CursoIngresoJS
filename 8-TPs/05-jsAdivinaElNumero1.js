@@ -31,8 +31,8 @@ function verificar()
   contadorIntentos++;
     switch(numeroIngresado)
     {
-        case 'numeroIngresado':
-        if (numeroIngresado=numeroSecreto)
+        case numeroIngresado==numeroIngresado:
+        if (numeroIngresado==numeroSecreto)
         {
             alert('Usted es un ganador!!! y en solo' + contadorIntentos + 'intentos');
             alert (numeroSecreto);

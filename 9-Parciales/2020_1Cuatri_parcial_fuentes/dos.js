@@ -1,3 +1,6 @@
+//Parcial 2020 ejercicio 2
+
+
 /*  Realizar el algoritmo que permita ingresar los datos de una compra productos de la construccion, hasta que el cliente quiera:
 Tipo validad("arena";"cal";"cemento"), Cantidad de bolsas, Precio por bolsa (más de cero ),
 
@@ -24,6 +27,8 @@ function mostrar()
     var acumuladorArena;
     var acumuladorCal;
     var acumuladorCemento;
+    var acumuladorCantidad;
+    var acumuladorTotal;
     var sumaCemento;
     var sumaCal;
     var sumaArena;
@@ -31,7 +36,13 @@ function mostrar()
     var tipoMasCaro;
     var precioBolsaMasCara;
 
+
     seguir = true;
+    acumuladorCemento = 0;
+    acumuladorCal = 0;
+    acumuladorArena = 0;
+    acumuladorCantidad =0;
+    acumuladorTotal= 0;
     sumaCemento = 0;
     sumaCal = 0;
     sumaArena = 0;
@@ -40,12 +51,12 @@ function mostrar()
     while (seguir==true)
     {
         tipo = prompt('Ingrese el tipo de producto: 1-Arena 2- Cemento 3-Cal')
-        tipo = parseInt(tipo);
 
-        while (tipo < 1 || tipo > 3)
+        while (tipo !='arena' &&  tipo!= 'cal' && tipo != 'cemento')
         {
             tipo = prompt('Error, vuelva a ingresar el tipo de producto');
-        } 
+        }                 
+
         cantidadBolsa = prompt('Ingrese cantidad de bolsas:');
         cantidadBolsa = parseInt (cantidadBolsa);
 
@@ -81,70 +92,82 @@ function mostrar()
            }
          }
 
+          switch (tipo)
+            {
+                case 'arena':
+                  acumuladorArena = cantidadBolsa;
+                  sumaArena = sumaArena + acumuladorArena;
+
+                break;
+                case 'cemento':
+                  acumuladorCemento = cantidadBolsa;
+                  sumaCemento = sumaCemento + cantidadBolsa;
+                  break;
+                case 'cal':
+                  acumuladorCal = cantidadBolsa;
+                  sumaCal = sumaCal + cantidadBolsa;
+                  break;
+            }
+
+
+
+          importeTotal = cantidadBolsa * precioBolsa;
+          acumuladorTotal = acumuladorTotal + importeTotal;
+
+          acumuladorCantidad = acumuladorCantidad + cantidadBolsa;
 
 
       seguir = confirm('Desea seguir agregando productos?');
     }
     
-    importeTotal = cantidadBolsa * precioBolsa;
-    importeConDesc = importeTotal - (importeTotal *descuento) / 100;
+
+    alert('El importe total a pagar será de:' +acumuladorTotal);
+
     
-    if (cantidadBolsa>10 && cantidadBolsa <30)
+    if (acumuladorCantidad>10 && acumuladorCantidad <30)
     {
-        descuento = 15;  
+        descuento = 15;
+  
     }
     else 
     {
-        if (cantidadBolsa>30 )
+        if (acumuladorCantidad>30 )
         {
           descuento = 25;
         }
         else 
         {
-          if (cantidadBolsa<10)
+          if (acumuladorCantidad<10)
           {
-            importeconDesc = "No hay descuento";
+            importeConDesc = "No hay descuento";
+            alert(importeConDesc);
           }
         }
     }
-
+     importeConDesc = acumuladorTotal - (acumuladorTotal *  descuento) / 100;
+    alert('El importe con descuento será de:' +importeConDesc);
     
-    switch (tipo)
-    {
-        case 1:
-          acumuladorArena = cantidadBolsa;
-          sumaArena = sumaArena + acumuladorArena;
-        break;
-        case 2:
-          acumuladorCemento = cantidadBolsa;
-          sumaCemento = sumaCemento + cantidadBolsa;
-          break;
-        case 3:
-          acumuladorCal = cantidadBolsa;
-          sumaCal = sumaCal + cantidadBolsa;
-          break;
-    }
 
-    if (acumuladorArena > acumuladorCal && acumuladorArena > acumuladorCemento)
+   
+
+    if ( sumaArena > sumaCal && sumaArena > sumaCemento)
     {
-      alert('Hay más cantidad de bolsas de arena con un total de: '+acumuladorArena);
+      alert('Hay más cantidad de bolsas de arena con un total de: '+sumaArena);
     }
     else 
     {
-      if (acumuladorCal > acumuladorCemento)
+      if (sumaCal >sumaCemento)
       {
-        alert('Hay mas cantiddad de cal. un total de: '+acumuladorCal);
+        alert('Hay mas cantidad de cal. un total de: '+sumaCal);
       }
       else 
       {
-        alert ('Hay mas cantidad de cemento c on untotal de: '+ acumuladorCemento); 
+        alert ('Hay mas cantidad de cemento c on untotal de: '+ sumaCemento); 
       }
     }
 
 
-
     
-    
-
-
+     alert ('El tipo mas caro es: '+tipoMasCaro);
 }
+
